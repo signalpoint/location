@@ -1,4 +1,20 @@
 /**
+ *
+ */
+function location_cck_field_formatter_view(entity_type, entity, field, instance, langcode, items, display) {
+  try {
+    var element = {};
+    $.each(items, function(delta, item) {
+        element[delta] = {
+          markup: theme('location', item)
+        };
+    });
+    return element;
+  }
+  catch (error) { console.log('location_cck_field_formatter_view - ' + error); }
+} 
+
+/**
  * Theme a location.
  */
 function theme_location(variables) {
